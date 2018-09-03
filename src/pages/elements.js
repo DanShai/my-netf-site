@@ -10,7 +10,7 @@ import pic10 from '../assets/images/pic10.jpg'
 const Elements = (props) => (
     <div>
         <Helmet>
-            <title>Elements - Forty by HTML5 UP</title>
+            <title>Elements </title>
             <meta name="description" content="Elements Page" />
         </Helmet>
 
