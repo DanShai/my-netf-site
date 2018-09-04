@@ -15,14 +15,20 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         `
       {
         allMarkdownRemark(limit: 1000) {
-          edges {
-            node {
-              frontmatter {
-                path
+ 
+            edges {
+              node {
+                id
+                excerpt
+                frontmatter {
+                  path
+                  title
+                  date
+                  author
+                }
               }
             }
           }
-        }
       }
     `
       ).then(result => {

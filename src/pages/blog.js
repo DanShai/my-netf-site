@@ -6,53 +6,51 @@ import get from 'lodash/get'
 
 class BlogPost extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    const posts = this.props.data.allMarkdownRemark
 
     return (
-      <div>
-        <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-        <h1>{post.frontmatter.title}</h1>
+    <div>
+      {
+        posts.edges.map(post  => 
+          <div key={post.node.id}  className=" box">
+        <h1>{post.node.frontmatter.title}</h1>
         <p>
-          {post.frontmatter.date}
+          {post.node.frontmatter.date}
         </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr/>
-      </div>
+          <small>
+            Posted by {post.node.frontmatter.author} on{' '}
+            {post.node.frontmatter.date}
+          </small>
+          <div dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
+          <Link to={post.node.frontmatter.path} className="button special"> Read More</Link>
+        
+        </div>
+        )
+      }
+    </div>
     )
   }
+
 }
 
-export default BlogPost
 
 export const pageQuery = graphql`
-  query BlogPostByPath {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
-
-    allMarkdownRemark {
+query BlogIndexQuery {
+  allMarkdownRemark {
         edges {
           node {
             id
+            excerpt
             frontmatter {
               path
               title
               date
+              author
             }
           }
         }
-      }    
-    markdownRemark {
-      id
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
       }
-    }
   }
 `
+export default BlogPost
+

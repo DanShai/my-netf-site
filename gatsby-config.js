@@ -6,11 +6,19 @@ module.exports = {
   },
   pathPrefix: '/',
   plugins: [
+    'gatsby-plugin-catch-links',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/posts`,
         name: "posts",
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/pages`,
+        name: 'pages',
       },
     },
     {
@@ -30,7 +38,23 @@ module.exports = {
               maxWidth: 630,
             },
           },
+          {
+            resolve: 'gatsby-remark-graph',
+            options: {
+              // this is the language in your code-block that triggers mermaid parsing
+              language: 'mermaid', // default
+              theme: 'default' // could also be dark, forest, or neutral
+            }
+          },
+          `gatsby-remark-katex`,
           "gatsby-remark-copy-linked-files",
+          {
+            resolve: `gatsby-transformer-csv`,
+            options: {
+              noheader: true,
+            },
+          }        
+      
         ],
       },
     },
