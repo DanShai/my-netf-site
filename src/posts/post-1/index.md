@@ -1,6 +1,6 @@
 ---
 title: Hello World
-date: "2015-05-01T22:12:03.284Z"
+date: "2018-09-01"
 path: "/post-1"
 author: "Dan Shai"
 ---

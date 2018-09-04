@@ -1,6 +1,6 @@
 ---
-title: My Second Post!
-date: "2015-05-06T23:46:37.121Z"
+title: WTF!
+date: "2018-09-01"
 path: "/post-3"
 author: "Dan Shai"
 ---

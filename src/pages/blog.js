@@ -20,8 +20,7 @@ class BlogPost extends React.Component {
                 {post.node.frontmatter.date}
               </p>
                 <small>
-                  Posted by {post.node.frontmatter.author} on{' '}
-                  {post.node.frontmatter.date}
+                  Posted by {post.node.frontmatter.author} on {post.node.frontmatter.date}
                 </small>
                 <div dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
                 <Link to={post.node.frontmatter.path} className="button special"> Read More</Link>

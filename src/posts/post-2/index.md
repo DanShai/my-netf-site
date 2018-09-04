@@ -1,6 +1,6 @@
 ---
 title: New Beginnings
-date: "2015-05-28T22:40:32.169Z"
+date: "2018-09-01"
 path: "/post-2"
 author: "Dan Shai"
 ---
