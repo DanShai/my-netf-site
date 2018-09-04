@@ -9,24 +9,29 @@ class BlogPost extends React.Component {
     const posts = this.props.data.allMarkdownRemark
 
     return (
-    <div>
-      {
-        posts.edges.map(post  => 
-          <div key={post.node.id}  className=" box">
-        <h1>{post.node.frontmatter.title}</h1>
-        <p>
-          {post.node.frontmatter.date}
-        </p>
-          <small>
-            Posted by {post.node.frontmatter.author} on{' '}
-            {post.node.frontmatter.date}
-          </small>
-          <div dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
-          <Link to={post.node.frontmatter.path} className="button special"> Read More</Link>
-        
-        </div>
-        )
-      }
+      <div id="main" className="alt">
+        <section id="one">
+          <div className="inner">
+            {
+              posts.edges.map(post  => 
+                <div key={post.node.id}  className=" box">
+              <h1>{post.node.frontmatter.title}</h1>
+              <p>
+                {post.node.frontmatter.date}
+              </p>
+                <small>
+                  Posted by {post.node.frontmatter.author} on{' '}
+                  {post.node.frontmatter.date}
+                </small>
+                <div dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
+                <Link to={post.node.frontmatter.path} className="button special"> Read More</Link>
+              
+              </div>
+              )
+            }
+          </div>
+        </section>
+
     </div>
     )
   }
